@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm_messaging_app_bots"
+authors = [{ name = "Aitor Mira Abad", email = "itortouch@gmail.com" }]
+description = "Implementations for LLMs at messaging apps."
+requires-python = ">=3.11"
+dynamic = ["version", "readme", "dependencies"]
+
+[tool.setuptools.dynamic]
+version = { attr = "llm_ma_bots.__version__" }
+readme = { file = ["README.md"], content-type = "text/markdown" }
+dependencies = { file = ["requirements.txt"] }
+
+[tool.ruff]
+line-length = 120
+
+[tool.black]
+line-length = 120
