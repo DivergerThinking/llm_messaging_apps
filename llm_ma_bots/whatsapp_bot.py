@@ -20,6 +20,7 @@ chat_history = defaultdict(list)
 
 app = FastAPI()
 
+
 async def update_and_get_chat_history(message: str, chat_id: int, top_k_messages: int = 5) -> list:
     chat_history[chat_id].append(message)
     return chat_history[chat_id][-top_k_messages:-1]
@@ -62,6 +63,7 @@ async def handle_whatsapp_message(body):
     }
     requests.post(url=url, json=response, headers=headers)
 
+
 @app.post("/webhook/")
 async def receive_webhook(body: dict):
     print(body)
@@ -86,6 +88,7 @@ async def receive_webhook(body: dict):
     except Exception as e:
         print(f"unknown error: {e}")
         return Response(content=str(e), status_code=500)
+
 
 # Just for webhook verification
 @app.get("/webhook/")
