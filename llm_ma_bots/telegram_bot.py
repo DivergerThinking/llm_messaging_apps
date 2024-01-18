@@ -14,12 +14,12 @@ logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s
 # Point to the local server
 client = OpenAI(base_url="http://localhost:1234/v1", api_key="not-needed")
 
-# Este diccionario almacenará los mensajes. La clave será el chat_id y el valor será una lista de mensajes.
+# This dictionaty stores the messages. The key is the chat_id and the value is a list of messages.
 chat_history = defaultdict(list)
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await context.bot.send_message(chat_id=update.effective_chat.id, text="Soy itor bot, ¿en qué te puedo ayudar?")
+    await context.bot.send_message(chat_id=update.effective_chat.id, text="Hi I'm a bot, how can I help?")
 
 
 async def update_and_get_chat_history(message: str, chat_id: int, top_k_messages: int = 5) -> list:
