@@ -15,7 +15,7 @@ logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s
 # Point to the local server
 client = OpenAI(base_url="http://localhost:1234/v1", api_key="not-needed")
 
-# Este diccionario almacenará los mensajes. La clave será el chat_id y el valor será una lista de mensajes.
+# This dictionaty stores the messages. The key is the chat_id and the value is a list of messages.
 chat_history = defaultdict(list)
 
 app = FastAPI()
